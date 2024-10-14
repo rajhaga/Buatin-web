@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Authentication;
 
 
 /*
@@ -17,13 +18,25 @@ use App\Http\Controllers\PostController;
 */
 
 
-Route::get('/', function () {
-    $posts = DB::table('posts')->get(); // Mengambil semua data dari tabel 'posts'
-    return view('blog', ['posts' => $posts]); // Mengirimkan data ke view 'blog'
-});
+// Route::get('/', function () {
+//     $posts = DB::table('posts')->get(); // Mengambil semua data dari tabel 'posts'
+//     return view('blog', ['posts' => $posts]); // Mengirimkan data ke view 'blog'
+// });
+
 
 Route::get('/upload', function () {
     return view('upload');
 });
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+
 
 Route::post('/upload', [PostController::class, 'store']);
+
+Route::post('/login', [Authentication::class, 'login'])->name('login');

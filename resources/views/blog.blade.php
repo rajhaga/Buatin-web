@@ -15,6 +15,7 @@
                 <li><a href="/upload">Upload Image</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="/login">Contact</a></li>
             </ul>
         </nav>
     </header>
