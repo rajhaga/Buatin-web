@@ -655,3 +655,50 @@ document.addEventListener("DOMContentLoaded", onloadAnimation());
     });
 
   }
+
+const header = document.getElementById('header');
+const sections = document.querySelectorAll('.section-f9, .how-we-work-section'); // Bagian dengan background #f9f9f9
+
+const observerOptions = {
+  root: null, // Mengamati viewport
+  threshold: 0.5 // Memicu ketika 50% dari elemen terlihat
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Jika bagian dengan #f9f9f9 muncul, ubah header menjadi pink
+      header.classList.add('bg-pink');
+    } else {
+      // Jika tidak, kembalikan menjadi transparan
+      header.classList.remove('bg-pink');
+    }
+  });
+}, observerOptions);
+
+// Mendaftarkan observer ke setiap section dengan background #f9f9f9
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+$(document).ready(function(){
+  $('.pricing-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      center: true,            // Menempatkan item aktif di tengah
+      dots: true,              // Mengaktifkan dots pagination
+      autoplay: true,
+      autoplayTimeout: 3000,
+      responsive: {
+          0: {
+              items: 1
+          },
+          600: {
+              items: 2
+          },
+          1000: {
+              items: 3
+          }
+      }
+  });
+});

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
+
 
 class Authentication extends Controller
 {
@@ -24,6 +26,10 @@ class Authentication extends Controller
         ]);
     }
 
+    public Function showLoginForm(){
+        return view('auth.login');  
+
+    }
     // Show registration form
     public function showRegisterForm()
     {
@@ -87,6 +93,5 @@ class Authentication extends Controller
 
         return redirect()->route('admin.users')->with('success', 'Role pengguna berhasil diubah.');
     }
-
 
 }

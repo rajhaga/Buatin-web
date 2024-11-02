@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Order;
+
 
 class AdminController extends Controller
 {
@@ -89,4 +91,34 @@ class AdminController extends Controller
     {
         return view('admin.accounts.profile');
     }
+    public function booked()
+    {
+        return view('admin.accounts.profile');
+    }
+
+    public function bulkAction(Request $request)
+    {
+        $action = $request->input('action');
+        $orderIds = $request->input('orders');
+
+        if ($action && $orderIds) {
+            $status = $action === 'approve' ? 'accepted' : 'rejected';
+            Order::whereIn('id', $orderIds)->update(['status' => $status]);
+
+            return redirect()->route('admin.orders')->with('message', 'Selected orders have been ' . $status . 'ed.');
+        }
+
+        return redirect()->route('admin.orders')->with('error', 'No orders selected or action specified.');
+    }
+
+    public function updateStatus($id, $status)
+{
+    $order = Order::findOrFail($id);
+    $order->status = $status;
+    $order->save();
+
+    return redirect()->route('admin.orders')->with('message', 'Order status has been updated.');
+}
+
+
 }

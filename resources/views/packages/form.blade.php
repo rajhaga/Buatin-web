@@ -11,7 +11,7 @@
     <div class="custom-card shadow-lg">
         <div class="card-body">
             <h1 class="heading text-center mb-4">Form Pemesanan</h1>
-            <form action="{{ route('packages.storeOrder') }}" method="POST" enctype="multipart/form-data" id="orderForm">
+            <form action="{{ route('order.store') }}" method="POST" enctype="multipart/form-data" id="orderForm">
                 @csrf
                 
                 <!-- Dropdown untuk memilih nama paket -->

@@ -16,15 +16,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('phone');
+            $table->string('location');
             $table->timestamps();
-            
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['user', 'admin'])->default('user'); // Hanya user atau admin
+            $table->enum('role', ['user', 'admin'])->default('user');
         });
-
-        
     }
 
     /**
@@ -34,7 +33,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role'); // Hapus kolom role saat rollback
+            $table->dropColumn('role');
+            $table->dropColumn('phone');
+            $table->dropColumn('location');
         });
     }
 };

@@ -9,15 +9,19 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'package_id', 'status', 'proof'];
+    protected $fillable = [
+        'user_id', 'package_id', 'location', 'description', 'status', 'proof'
+    ];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function package()
-    {
-        return $this->belongsTo(Package::class);
-    }
+    // Define the relationship to Package
 }

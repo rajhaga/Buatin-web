@@ -43,11 +43,6 @@
             <input type="password" name="password" class="form-control">
         </div>
 
-        <div class="form-group">
-            <label for="password_confirmation">Confirm Password</label>
-            <input type="password" name="password_confirmation" class="form-control">
-        </div>
-
         <button type="submit" class="btn btn-success">Update Profile</button>
         <a href="{{ route('home') }}" class="btn btn-secondary">Cancel</a>
     </form>

@@ -9,6 +9,35 @@ use Illuminate\Support\Facades\Auth;
 
 class PackageController extends Controller
 {
+    public function pricing()
+    {
+        // Mengambil semua data packages dari database
+        $packages = Package::all();
+        
+        // Mengirim data packages ke view
+        return view('about', compact('packages'));
+    }
+
+    public function portpricing()
+    {
+        // Mengambil semua data packages dari database
+        $packages = Package::all();
+        
+        // Mengirim data packages ke view
+        return view('port', compact('packages'));
+    }
+
+    
+
+    public function pricingprop()
+    {
+        // Mengambil semua data packages dari database
+        $packages = Package::all();
+        
+        // Mengirim data packages ke view
+        return view('testimoni', compact('packages'));
+    }
+    
     public function createOrderForm()
     {
         // Ambil semua paket dari database
