@@ -47,6 +47,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $order->package->name }}</h5>
                                 <p><strong>User:</strong> {{ $order->user->name }}</p>
+                                <p><strong>Deadline:</strong> {{ $order->deadline }}</p>
                                 <p><strong>Location:</strong> {{ $order->location }}</p>
                                 <p><strong>Description:</strong> {{ $order->description }}</p>
                                 <p><strong>Status:</strong> <span class="badge bg-warning text-dark">{{ ucfirst($order->status) }}</span></p>
@@ -71,6 +72,7 @@
         </div>
 
         <!-- Accepted Orders Tab -->
+        <!-- Accepted Orders Tab -->
         <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
             <h3 class="text-center my-4">Accepted Orders</h3>
             <div class="row">
@@ -80,9 +82,15 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $order->package->name }}</h5>
                                 <p><strong>User:</strong> {{ $order->user->name }}</p>
+                                <p><strong>Deadline:</strong> {{ $order->deadline }}</p>
                                 <p><strong>Location:</strong> {{ $order->location }}</p>
                                 <p><strong>Description:</strong> {{ $order->description }}</p>
                                 <p><strong>Status:</strong> <span class="badge bg-success">{{ ucfirst($order->status) }}</span></p>
+
+
+                                <!-- WhatsApp Contact Button -->
+                                <a href="https://wa.me/{{ $order->user->phone }}?text=Hello%20{{ urlencode($order->user->name) }},%20we%20are%20contacting%20you%20regarding%20your%20accepted%20order%20of%20the%20{{ urlencode($order->package->name) }}%20package."
+                                target="_blank" class="btn btn-success btn-sm">Contact via WhatsApp</a>
                             </div>
                         </div>
                     </div>
@@ -100,6 +108,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $order->package->name }}</h5>
                                 <p><strong>User:</strong> {{ $order->user->name }}</p>
+                                <p><strong>Deadline:</strong> {{ $order->deadline }}</p>
                                 <p><strong>Location:</strong> {{ $order->location }}</p>
                                 <p><strong>Description:</strong> {{ $order->description }}</p>
                                 <p><strong>Status:</strong> <span class="badge bg-danger">{{ ucfirst($order->status) }}</span></p>
@@ -120,12 +129,17 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $order->package->name }}</h5>
                                 <p><strong>User:</strong> {{ $order->user->name }}</p>
+                                <p><strong>Deadline:</strong> {{ $order->deadline }}</p>
                                 <p><strong>Location:</strong> {{ $order->location }}</p>
                                 <p><strong>Description:</strong> {{ $order->description }}</p>
                                 <p><strong>Status:</strong> <span class="badge bg-info">Payment Submitted</span></p>
                                 <p><strong>Proof:</strong> 
                                     <a href="{{ asset('uploads/' . $order->proof) }}" target="_blank" class="btn btn-primary btn-sm">View Proof</a>
                                 </p>
+
+                                <!-- WhatsApp Contact Button -->
+                                <a href="https://wa.me/{{ $order->user->phone }}?text=Hello%20{{ urlencode($order->user->name) }},%20we%20received%20your%20payment%20for%20the%20{{ urlencode($order->package->name) }}%20package.%20Thank%20you!"
+                                target="_blank" class="btn btn-success btn-sm">Contact via WhatsApp</a>
                             </div>
                         </div>
                     </div>

@@ -2,12 +2,12 @@
 
 @section('content')
 
-<section class="hero-section" style="background-image: url(assets/img/12.png)">
+<section class="hero-section" style="background-image: url('{{ asset('img/12.png') }}')  ">
     <div class="container">
         <h2>Portofolio Kami</h2>
         <p>Solusi Kreatif untuk Pertumbuhan Brand yang Berkelanjutan</p>
         <ul>
-            <li><i class="fa-solid fa-house"></i><a href="index.html">Beranda</a></li>
+            <li><i class="fa-solid fa-house"></i><a href="{{ route('home') }}">Beranda</a></li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Portofolio Kami</a></li>      
         </ul>

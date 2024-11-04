@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" name="phone" class="form-control" value="{{ Auth::user()->phone ?: '' }}">
+            <input type="text" name="phone" id="phone" class="form-control" value="{{ Auth::user()->phone ?: '' }}" placeholder="+62">
         </div>
 
         <div class="form-group">
@@ -47,4 +47,18 @@
         <a href="{{ route('home') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const phoneInput = document.getElementById('phone');
+
+        phoneInput.addEventListener('blur', function () {
+            let phoneValue = phoneInput.value.trim();
+
+            // Add +62 if not present
+            if (phoneValue && !phoneValue.startsWith('+62')) {
+                phoneInput.value = '+62' + phoneValue;
+            }
+        });
+    });
+</script>
 @endsection

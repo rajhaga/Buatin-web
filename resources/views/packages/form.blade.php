@@ -39,6 +39,12 @@
                     <input type="text" class="form-control" id="location" name="location" placeholder="Masukkan Lokasi" required>
                 </div>
 
+                <!-- Tanggal Deadline -->
+                <div class="form-group">
+                    <label for="deadline">Tanggal Deadline</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" required>
+                </div>
+
                 <!-- Deskripsi Konten -->
                 <div class="form-group">
                     <label for="description">Deskripsi Konten</label>

@@ -122,6 +122,51 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        /* General Button Styles */
+        .btn {
+            padding: 0.5rem 1.25rem;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Primary Button (e.g., Add, Back to Home) */
+        .btn-primary {
+            background-color: #4a154b;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #3b1040;
+            transform: translateY(-2px);
+        }
+
+        /* Warning Button (e.g., Edit) */
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+            color: #333;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        /* Danger Button (e.g., Delete) */
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
         
     </style>
 </head>
@@ -152,6 +197,13 @@
                         Manage Orders
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.packages.index') }}" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        Packages
+                    </a>
+                </li>
+                
                 <!-- Add more menu items as needed -->
             </ul>
         </nav>

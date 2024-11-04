@@ -103,3 +103,13 @@ Route::put('/profile/update', [ProfileController::class, 'update'])->name('profi
 
 Route::get('/contact', [ContactController::class, 'showContactForm'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submitContactForm'])->name('contact.submit');
+
+// Route for CRUD operations for packages
+Route::prefix('admin/packages')->name('admin.packages.')->middleware('auth')->group(function () {
+    Route::get('/', [PackageController::class, 'adminpackages'])->name('index'); // Read
+    Route::get('/create', [PackageController::class, 'create'])->name('create'); // Show create form
+    Route::post('/', [PackageController::class, 'store'])->name('store'); // Create
+    Route::get('/{id}/edit', [PackageController::class, 'edit'])->name('edit'); // Show edit form
+    Route::put('/{id}', [PackageController::class, 'update'])->name('update'); // Update
+    Route::delete('/{id}', [PackageController::class, 'destroy'])->name('destroy'); // Delete
+});

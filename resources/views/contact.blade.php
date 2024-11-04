@@ -7,12 +7,12 @@
     </div>
 @endif
 
-  <section class="hero-section " style="background-image: url(https://via.placeholder.com/1920x548)">
+  <section class="hero-section " style="background-image: url('{{ asset('img/12.png') }}')">
 		<div class="container">
 			<h2>Kontak Kami</h2>
 			<p>Dari Ide hingga Eksekusi, Kami Ahlinya!</p>
 			<ul>
-				<li><i class="fa-solid fa-house"></i><a href="index.html">Beranda</a></li>
+				<li><i class="fa-solid fa-house"></i><a href="{{ route('home') }}">Beranda</a></li>
 				<li><a href="#">Kontak Kami</a></li>  
 			</ul>
 		</div>

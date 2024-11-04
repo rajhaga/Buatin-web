@@ -5,7 +5,7 @@
 <div class="container">
     <div class="heading">
         <h2>Portfolio</h2>
-        <a href="{{ route('portfolio.create') }}" class="btn btn-primary">Add New Portfolio Item</a>
+        <a href="{{ route('portfolio.create') }}" class="btn btn-primary mb-3">Add New Portfolio Item</a>
     </div>
     <div class="row">
         @foreach ($portfolios as $portfolio)
@@ -16,12 +16,14 @@
                     <h4>{{ $portfolio->title }}</h4>
                     <p>{{ $portfolio->subtitle }}</p>
                     <p>Category: {{ $portfolio->category }}</p>
-                    <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-warning me-2">Edit</a>
+                        <form action="{{ route('portfolio.destroy', $portfolio->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>                    
                 </div>
             </div>
         </div>

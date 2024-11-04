@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 <div class="container">
-    <h2>Edit Profile</h2>
+    <h2>Edit Account</h2>
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -14,42 +14,40 @@
         </div>
     @endif
 
-    <form action="{{ route('profile.update') }}" method="POST">
+    <form action="{{ route('admin.accounts.update', $account->id) }}" method="POST">
         @csrf
         @method('PUT')
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" required>
+            <input type="text" name="name" class="form-control" value="{{ $account->name }}" required>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" required>
+            <input type="email" name="email" class="form-control" value="{{ $account->email }}" required>
         </div>
 
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" name="phone" class="form-control" value="{{ Auth::user()->phone ?: '' }}">
+            <input type="text" name="phone" class="form-control" value="{{ $account->phone }}">
         </div>
 
         <div class="form-group">
-            <label for="location">Address</label>
-            <input type="text" name="location" class="form-control" value="{{ Auth::user()->location ?: '' }}">
+            <label for="location">Location</label>
+            <input type="text" name="location" class="form-control" value="{{ $account->location }}">
         </div>
 
         <div class="form-group">
-            <label for="password">Password (Leave blank to keep current)</label>
-            <input type="password" name="password" class="form-control">
+            <label for="role">Role</label>
+            <select name="role" class="form-control">
+                <option value="user" {{ $account->role == 'user' ? 'selected' : '' }}>User</option>
+                <option value="admin" {{ $account->role == 'admin' ? 'selected' : '' }}>Admin</option>
+            </select>
         </div>
 
-        <div class="form-group">
-            <label for="password_confirmation">Confirm Password</label>
-            <input type="password" name="password_confirmation" class="form-control">
-        </div>
-
-        <button type="submit" class="btn btn-success">Update Profile</button>
-        <a href="{{ route('home') }}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-success">Update Account</button>
+        <a href="{{ route('admin.accounts.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection

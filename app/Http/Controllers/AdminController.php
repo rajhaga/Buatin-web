@@ -55,25 +55,30 @@ class AdminController extends Controller
     {
         $account = User::findOrFail($id);
 
+        // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $account->id,
+            'phone' => 'nullable|string|max:20',
             'password' => 'nullable|string|min:8',
             'role' => 'required|in:user,admin', // Validasi role
         ]);
 
-        $account->name = $request->name;
-        $account->email = $request->email;
-        $account->role = $request->role; // Perbarui kolom role
+        // Format nomor telepon untuk diawali dengan +62 jika tidak ada
+        $phone = $request->phone;
+        if ($phone && !str_starts_with($phone, '+62')) {
+            $phone = '+62' . $phone;
+        }
 
+        // Update data user
         $account->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password ? Hash::make($request->password) : $account->password,
             'role' => $request->role,
+            'phone' => $phone, // Menggunakan $phone yang sudah diformat
+            'location' => $request->location
         ]);
-
-        $account->save(); // Simpan perubahan
 
         return redirect()->route('admin.accounts.index')->with('success', 'Account updated successfully.');
     }

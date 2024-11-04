@@ -8,7 +8,7 @@
 			<p>Creative Agency Desain, 
 				Editing dan Konten Kreator</p>
 			<ul>
-				<li><i class="fa-solid fa-house"></i><a href="index.html">Beranda</a></li>
+				<li><i class="fa-solid fa-house"></i><a href="{{ route('home') }}">Beranda</a></li>
 				<li><a href="#">Tentang Kami</a></li>    
 			</ul>
 		</div>

@@ -25,6 +25,7 @@
                             {{ ucfirst($order->status) }}
                         </span>
                     </p>
+                    <p><strong>Deadline:</strong> {{ $order->deadline }}</p>
                     <p class="mb-1"><strong>Location:</strong> {{ $order->location }}</p>
                     <p><strong>Description:</strong> {{ $order->description }}</p>
 

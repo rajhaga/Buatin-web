@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-	<section class="hero-section " style="background-image: url(https://via.placeholder.com/1920x548)">
+	<section class="hero-section " style="background-image: url('{{ asset('img/12.png') }}')">
 		<div class="container">
 			<h2>Team Details</h2>
 			<p>creative design agency and marketing specialist working 
 				with ambitious companies</p>
 			<ul>
-				<li><i class="fa-solid fa-house"></i><a href="index.html">Home</a></li>
+				<li><i class="fa-solid fa-house"></i><a href="{{ route('home') }}">Home</a></li>
 				<li><a href="#"> Pages</a></li>
 				<li><a href="#">Team Details</a></li>      
 			</ul>

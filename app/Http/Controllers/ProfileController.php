@@ -22,19 +22,28 @@ class ProfileController extends Controller
             'password' => 'nullable|min:8|confirmed',
         ]);
 
+        // Format phone number to start with +62 if not already present
+        $phone = $request->phone;
+        if ($phone && !str_starts_with($phone, '+62')) {
+            $phone = '+62' . $phone;
+        }
+
         // Update data user
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->phone = $request->phone;
+        $user->phone = $phone;
         $user->location = $request->location;
 
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
 
+        $user->save();
 
         return redirect()->route('home')->with('success', 'Profile updated successfully.');
     }
+
+
 
     public function edit()
     {

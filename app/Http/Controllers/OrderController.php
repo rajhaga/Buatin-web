@@ -74,6 +74,7 @@ class OrderController extends Controller
         $order->location = $request->location;
         $order->description = $request->description;
         $order->status = 'pending';
+        $order->deadline = $request->deadline; // Menyimpan deadline
         $order->save();
 
         return redirect()->route('booked.list')->with('message', 'Order created successfully and awaiting approval.');
