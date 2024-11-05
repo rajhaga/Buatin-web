@@ -41,11 +41,10 @@
         <div class="form-group">
             <label for="role">Role</label>
             <select name="role" class="form-control">
-                <option value="user" {{ $account->role == 'user' ? 'selected' : '' }}>User</option>
+                <option value="user" {{ $account->role == 'admin' ? 'selected' : '' }}>User</option>
                 <option value="admin" {{ $account->role == 'admin' ? 'selected' : '' }}>Admin</option>
             </select>
-        </div>
-
+        </div>        
         <button type="submit" class="btn btn-success">Update Account</button>
         <a href="{{ route('admin.accounts.index') }}" class="btn btn-secondary">Cancel</a>
     </form>

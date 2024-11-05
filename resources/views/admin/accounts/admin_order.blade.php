@@ -89,8 +89,8 @@
 
 
                                 <!-- WhatsApp Contact Button -->
-                                <a href="https://wa.me/{{ $order->user->phone }}?text=Hello%20{{ urlencode($order->user->name) }},%20we%20are%20contacting%20you%20regarding%20your%20accepted%20order%20of%20the%20{{ urlencode($order->package->name) }}%20package."
-                                target="_blank" class="btn btn-success btn-sm">Contact via WhatsApp</a>
+                                <a href="https://wa.me/{{ $order->user->phone }}?text=Halo%20{{ urlencode($order->user->name) }},%20terima%20kasih%20telah%20memesan%20paket%20{{ urlencode($order->package->name) }}.%20Kami%20ingin%20memberikan%20informasi%20lebih%20lanjut%20mengenai%20pesanan%20Anda.%20Silakan%20hubungi%20kami%20jika%20ada%20pertanyaan!"
+                                    target="_blank" class="btn btn-success btn-sm">Hubungi via WhatsApp</a>                                 
                             </div>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ class ContactController extends Controller
 
         // Kirim email dengan format HTML dan Text sebagai fallback
         Mail::send([], [], function ($message) use ($request) {
-            $message->to('rajsee') // Ganti dengan alamat email tujuan
+            $message->to('rajsee200478@gmail.com') // Ganti dengan alamat email tujuan
                     ->subject('Pesan Baru dari Kontak')
                     ->html("
                         <h1>Pesan Baru dari Kontak</h1>

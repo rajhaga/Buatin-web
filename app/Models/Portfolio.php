@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
-    protected $fillable = ['title', 'subtitle', 'category', 'image'];
+    protected $fillable = ['title', 'subtitle', 'category', 'image','video','date','pdf','video_url'];
 }

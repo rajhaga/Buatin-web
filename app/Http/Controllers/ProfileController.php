@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+
 class ProfileController extends Controller
 {
     public function update(Request $request)
@@ -37,8 +38,8 @@ class ProfileController extends Controller
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
-
         $user->save();
+
 
         return redirect()->route('home')->with('success', 'Profile updated successfully.');
     }

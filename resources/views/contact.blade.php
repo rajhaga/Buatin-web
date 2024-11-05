@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
 
+<style>
+	.email-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+	</style>
   <section class="hero-section " style="background-image: url('{{ asset('img/12.png') }}')">
 		<div class="container">
 			<h2>Kontak Kami</h2>
@@ -17,6 +20,11 @@
 			</ul>
 		</div>
 	</section>
+	@if(session('success'))
+		<div class="alert alert-success">
+			{{ session('success') }}
+		</div>
+	@endif
 	<section class="gap">
 		<div class="container">
 			<div class="row">

@@ -20,7 +20,7 @@ class AdminController extends Controller
     // Show form to create a new account
     public function create()
     {
-        return view('admin.accounts.create');
+        return view('auth.register');
     }
 
     // Store a new account
@@ -53,6 +53,7 @@ class AdminController extends Controller
     // Update an account
     public function update(Request $request, $id)
     {
+        // Temukan akun berdasarkan ID
         $account = User::findOrFail($id);
 
         // Validasi input
@@ -60,28 +61,35 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $account->id,
             'phone' => 'nullable|string|max:20',
-            'password' => 'nullable|string|min:8',
+            'location' => 'nullable|string|max:255',
             'role' => 'required|in:user,admin', // Validasi role
+            'password' => 'nullable|string|min:8', // Password opsional
         ]);
 
-        // Format nomor telepon untuk diawali dengan +62 jika tidak ada
+        // Format nomor telepon untuk diawali dengan +62 jika belum ada
         $phone = $request->phone;
         if ($phone && !str_starts_with($phone, '+62')) {
-            $phone = '+62' . $phone;
+            $phone = '+62' . ltrim($phone, '0'); // Menghapus 0 awal jika ada
         }
 
-        // Update data user
-        $account->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password ? Hash::make($request->password) : $account->password,
-            'role' => $request->role,
-            'phone' => $phone, // Menggunakan $phone yang sudah diformat
-            'location' => $request->location
-        ]);
+        // Update data akun
+        $account->name = $request->name;
+        $account->email = $request->email;
+        $account->phone = $phone;
+        $account->location = $request->location;
+        $account->role = $request->role;
+
+        // Hanya hash password jika diubah
+        if ($request->password) {
+            $account->password = Hash::make($request->password);
+        }
+
+        // Simpan perubahan ke database
+        $account->save();
 
         return redirect()->route('admin.accounts.index')->with('success', 'Account updated successfully.');
     }
+
 
     // Delete an account
     public function destroy($id)

@@ -2,42 +2,66 @@
 
 @section('content')
 <div class="container">
-    <div class="heading">
-        <h2>Edit Portfolio Item</h2>
-    </div>
-    <form action="{{ route('profile.update') }}" method="POST">
+    <h2 class="mb-4">Edit Portfolio Item</h2>
+
+    <form action="{{ route('portfolio.update', $portfolio->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-    
-        <!-- Field input untuk name, email, phone, location, password -->
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" required>
+
+        <div class="form-group mb-3">
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" value="{{ old('title', $portfolio->title) }}" required>
+            @error('title')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
-    
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" required>
+
+        <div class="form-group mb-3">
+            <label for="subtitle">Subtitle</label>
+            <input type="text" name="subtitle" class="form-control" value="{{ old('subtitle', $portfolio->subtitle) }}" required>
+            @error('subtitle')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
-    
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" name="phone" class="form-control" value="{{ Auth::user()->phone }}">
+
+        <div class="form-group mb-3">
+            <label for="category">Category</label>
+            <input type="text" name="category" class="form-control" value="{{ old('category', $portfolio->category) }}" required>
+            @error('category')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
-    
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" name="location" class="form-control" value="{{ Auth::user()->location }}">
+
+        <div class="form-group mb-3">
+            <label for="image">Image</label>
+            <input type="file" name="image" class="form-control" accept="image/*">
+            <small class="form-text text-muted">Leave empty to keep the current image.</small>
         </div>
-    
-        <div class="form-group">
-            <label for="password">Password (Leave blank to keep current)</label>
-            <input type="password" name="password" class="form-control">
+
+        <div class="form-group mb-3">
+            <label for="video_url">Video URL</label>
+            <input type="url" name="video_url" class="form-control" value="{{ old('video_url', $portfolio->video_url) }}">
+            @error('video_url')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
-    
-        <button type="submit" class="btn btn-success">Update Profile</button>
-        <a href="{{ route('home') }}" class="btn btn-secondary">Cancel</a>
+
+        <div class="form-group mb-3">
+            <label for="pdf">PDF File</label>
+            <input type="file" name="pdf" class="form-control" accept=".pdf">
+            <small class="form-text text-muted">Leave empty to keep the current PDF file.</small>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="date">Date</label>
+            <input type="date" name="date" class="form-control" value="{{ old('date', $portfolio->date) }}">
+            @error('date')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Portfolio Item</button>
+        <a href="{{ route('portfolio.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
-    
 </div>
 @endsection

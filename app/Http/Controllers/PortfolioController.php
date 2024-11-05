@@ -34,34 +34,40 @@ class PortfolioController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'title' => 'required|string|max:255',
             'subtitle' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'date' => 'required|date', // Validasi untuk tanggal
+            'image' => 'nullable|image|max:2048', // Gambar bersifat opsional
+            'video' => 'nullable|file|mimes:mp4,avi|max:20480', // Validasi untuk video
+            'pdf' => 'nullable|file|mimes:pdf|max:2048', // PDF bersifat opsional
+            'video_url' => 'nullable|url', // Validasi untuk URL video
         ]);
 
-        $image = $request->file('image');
-        $imagePath = 'uploads/portfolio/';
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        // Menangani upload gambar
+        $imagePath = $request->hasFile('image') ? $request->file('image')->store('portfolio/images', 'public') : null;
 
-        // Buat folder jika belum ada
-        if (!File::exists(public_path($imagePath))) {
-            File::makeDirectory(public_path($imagePath), 0755, true);
-        }
+        // Menangani upload video
+        $videoPath = $request->hasFile('video') ? $request->file('video')->store('portfolio/videos', 'public') : null;
 
-        // Simpan gambar ke direktori
-        $image->move(public_path($imagePath), $imageName);
+        // Menangani upload PDF
+        $pdfPath = $request->hasFile('pdf') ? $request->file('pdf')->store('portfolio/pdfs', 'public') : null;
 
-        // Simpan data portfolio ke database
+        // Membuat entri portfolio baru
         Portfolio::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'category' => $request->category,
-            'image' => $imagePath . $imageName,
+            'date' => $request->date, // Menyimpan tanggal
+            'image' => $imagePath, // Menyimpan path gambar jika ada
+            'video' => $videoPath, // Menyimpan path video jika ada
+            'pdf' => $pdfPath, // Menyimpan path PDF jika ada
+            'video_url' => $request->video_url, // Menyimpan URL video
         ]);
 
-        return redirect()->route('portfolio.index')->with('success', 'Portfolio item successfully added.');
+        return redirect()->route('portfolio.index')->with('success', 'Portfolio item added successfully.');
     }
 
     public function edit(Portfolio $portfolio)
@@ -71,31 +77,31 @@ class PortfolioController extends Controller
 
     public function update(Request $request, Portfolio $portfolio)
     {
+        // Validate incoming request data
         $request->validate([
             'title' => 'required',
             'subtitle' => 'required',
             'category' => 'required',
-            'image' => 'image',
+            'image' => 'image|nullable',
+            'video_url' => 'nullable|url',
+            'pdf' => 'nullable|mimes:pdf|max:2048',
+            'date' => 'nullable|date',
         ]);
 
+        // Update the title, subtitle, category, date, and video URL
+        $portfolio->update($request->only(['title', 'subtitle', 'category', 'date', 'video_url']));
+
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = 'uploads/portfolio/';
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-
-            // Buat folder jika belum ada
-            if (!File::exists(public_path($imagePath))) {
-                File::makeDirectory(public_path($imagePath), 0755, true);
-            }
-
-            // Simpan gambar ke direktori
-            $image->move(public_path($imagePath), $imageName);
-
-            // Update image di database
-            $portfolio->update(['image' => $imagePath . $imageName]);
+            $imagePath = $request->file('image')->store('portfolio/images', 'public');
+            $portfolio->update(['image' => $imagePath]);
         }
 
-        $portfolio->update($request->only(['title', 'subtitle', 'category']));
+        // Handle PDF file upload
+        if ($request->hasFile('pdf')) {
+            $pdfPath = $request->file('pdf')->store('portfolio/pdfs', 'public');
+            $portfolio->update(['pdf' => $pdfPath]);
+        }
 
         return redirect()->route('portfolio.index')->with('success', 'Portfolio item updated successfully');
     }

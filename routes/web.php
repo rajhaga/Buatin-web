@@ -113,3 +113,4 @@ Route::prefix('admin/packages')->name('admin.packages.')->middleware('auth')->gr
     Route::put('/{id}', [PackageController::class, 'update'])->name('update'); // Update
     Route::delete('/{id}', [PackageController::class, 'destroy'])->name('destroy'); // Delete
 });
+
