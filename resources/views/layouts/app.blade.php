@@ -121,19 +121,7 @@
         </div>
         
         <div class="row gap">
-            <div class="col-xl-5 col-lg-6 col-md-12">
-                <div class="newsletter">
-                    <h4>Tetap Terhubung</h4>
-                    <p>Kritik dan Saran</p>
-                    <form>
-                        <input type="text" placeholder="Masukkan Pesan....">
-                        <br>
-                        <button class="sec-btn" type="submit">Kirim</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="offset-xl-1 col-lg-2 col-md-4 col-sm-6">
+            <div class="offset-xl-1 col-lg-3 col-md-4 col-sm-6">
                 <div class="newsletter">
                     <h4>Links</h4>
                     <ul class="links">
@@ -141,12 +129,11 @@
                         <li><a href="{{ route('pricing') }}">Pricelist</a></li>
                         <li><a href="{{ route('about') }}">Tentang</a></li>
                         <li><a href="{{ route('port') }}">Portfolio</a></li>
-                        <li><a href="{{ route('contact.show') }}">Kontak</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="newsletter">
                     <h4>Services</h4>
                     <ul class="links">
@@ -155,7 +142,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="newsletter">
                     <h4>Sharing</h4>
                     <ul class="links">
@@ -169,6 +156,7 @@
         <p class="footer">© 2024 BuatinKamu.Id <i class="fas fa-heart"></i> By <a href="https://themeforest.net/user/winsfolio" target="_blank">WELLLL</a>, All rights reserved</p>
     </div>
 </footer>
+
 
 
   <!-- LIGHTBOX CODE BEGIN -->

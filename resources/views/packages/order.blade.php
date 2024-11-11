@@ -1,11 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<section class="hero-section " style="background-image: url('{{ asset('img/12.png') }}')">
+    <div class="container">
+        <h2>Orders List</h2>
+        <p>Dari Ide hingga Eksekusi, Kami Ahlinya!</p>
+        <ul>
+            <li><i class="fa-solid fa-house"></i><a href="{{ route('home') }}">Beranda</a></li>
+            <li><a href="#">Orders list</a></li>  
+        </ul>
+    </div>
+</section>
 <div class="container my-5 section-f9">
-</br>
-</br>
-</br>
-</br>
+
     <h1 class="text-center mb-4">Your Orders</h1>
 
     <!-- Display Success Message -->

@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="hero-section" style="background-image: url({{ asset('assets/img/12.png') }})">
+<section class="hero-section" style="background-image: url({{ asset('img/12.png') }})">
     <div class="container">
         <h2>Portfolio Details</h2>
         <p>creative design agency and marketing specialist working with ambitious companies</p>

@@ -5901,7 +5901,7 @@ h4 {
 
 .badge {
     background: white;
-    color: #555;
+    color: #ffffff;
     padding: 2px 8px;
     border-radius: 12px;
     margin-left: 5px;
@@ -6257,4 +6257,181 @@ h4 {
 .sec-btn:hover {
     background-color: #9c96e0;
     transform: scale(1.05);
+}
+
+/* General Styling for Body and Background Consistency */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Scoped Footer Styling for .footer-style-one */
+.footer-style-one {
+    position: relative;
+    padding: 40px 20px;
+    background-color: #3e005d; /* Ensure consistency with the page background */
+    color: #fff;
+    width: 100%; /* Ensures full width */
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.footer-style-one .container,
+.footer-style-one .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1200px; /* Optional: Set a max-width for the container */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-style-one .information,
+.footer-style-one .newsletter,
+.footer-style-one .links {
+    flex: 1;
+    margin-bottom: 20px;
+    min-width: 250px; /* Ensures columns have a minimum width */
+}
+
+.footer-style-one .information .row,
+.footer-style-one .newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-style-one .newsletter h4,
+.footer-style-one .information-data h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-style-one .newsletter p,
+.footer-style-one .information-data h6 {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.footer-style-one .newsletter form input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.footer-style-one .newsletter button.sec-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-style-one .newsletter button.sec-btn:hover {
+    background-color: #555;
+}
+
+.footer-style-one .links li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.footer-style-one .links li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-style-one .links li a:hover {
+    color: #fff;
+}
+
+.footer-style-one .information-data h6 a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.footer-style-one .information-data h6 a:hover {
+    color: #fff;
+}
+
+.footer-style-one p.footer {
+    margin-top: 20px;
+    color: #ddd;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .footer-style-one .row,
+    .footer-style-one .newsletter,
+    .footer-style-one .links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-style-one .newsletter form input[type="text"] {
+        width: 100%;
+    }
+
+    .footer-style-one .links,
+    .footer-style-one .information {
+        width: 100%; /* Ensure full width on smaller screens */
+    }
+
+    .footer-style-one .container {
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+}
+
+.footer-style-one .newsletter {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.footer-style-one .newsletter ul {
+    padding: 0;
+    margin: 0;
+    display: flex; /* Change display to flex for horizontal alignment */
+    flex-wrap: wrap; /* Optional: Allows wrapping if there are many links */
+    list-style: none;
+    gap: 10px; /* Optional: Adjust gap between links */
+}
+
+.footer-style-one .newsletter ul li {
+    margin-bottom: 0; /* Remove bottom margin to align horizontally */
+}
+
+.footer-style-one .newsletter ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-style-one .newsletter ul li a:hover {
+    color: #fff;
+}
+
+.hamburger-icon a.sec-btn {
+    margin-right: 10px; /* Adds space between the buttons */
+}
+
+.hamburger-icon a.sec-btn:last-child {
+    margin-right: 0; /* Removes margin from the last button if needed */
 }
