@@ -83,13 +83,14 @@ class PackageController extends Controller
         return view('testimoni', compact('packages'));
     }
     
-    public function createOrderForm()
+    public function createOrderForm(Request $request)
     {
         // Ambil semua paket dari database
         $packages = Package::all();
+        $packageName = $request->query('name', ''); // Retrieve package name from query parameter
 
         // Kirimkan data paket ke view
-        return view('packages.form', compact('packages'));
+        return view('packages.form', compact('packageName', 'packages'));
     }
     
     public function index()

@@ -21,6 +21,10 @@
             <label for="description">Description</label>
             <textarea name="description" class="form-control">{{ $package->description }}</textarea>
         </div>
+        <div class="form-group">
+            <label for="category">category</label>
+            <input type="category" name="category" class="form-control" value="{{ $package->category }}" required>
+        </div>
 
         <button type="submit" class="btn btn-primary mt-2">Update</button>
     </form>

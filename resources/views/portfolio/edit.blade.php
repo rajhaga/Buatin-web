@@ -17,9 +17,9 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="subtitle">Subtitle</label>
-            <input type="text" name="subtitle" class="form-control" value="{{ old('subtitle', $portfolio->subtitle) }}" required>
-            @error('subtitle')
+            <label for="klien">Klien</label>
+            <input type="text" name="klien" class="form-control" value="{{ old('klien', $portfolio->klien) }}" required>
+            @error('klien')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -33,13 +33,21 @@
         </div>
 
         <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" rows="4">{{ old('description', $portfolio->description) }}</textarea>
+            @error('description')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>        
+
+        <div class="form-group mb-3">
             <label for="image">Image</label>
             <input type="file" name="image" class="form-control" accept="image/*">
             <small class="form-text text-muted">Leave empty to keep the current image.</small>
         </div>
 
         <div class="form-group mb-3">
-            <label for="video_url">Video URL</label>
+            <label for="video_url">URL</label>
             <input type="url" name="video_url" class="form-control" value="{{ old('video_url', $portfolio->video_url) }}">
             @error('video_url')
                 <div class="text-danger">{{ $message }}</div>

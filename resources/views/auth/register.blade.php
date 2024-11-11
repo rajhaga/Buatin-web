@@ -1,42 +1,78 @@
-@extends('layouts.app')
+@extends('layouts.layoutauth')
 
 @section('content')
-<section class="auth-section">
-    <div class="auth-container card-style">
-        <h2 class="heading">Register</h2>
-        <form method="POST" action="{{ route('register') }}" class="auth-form">
-            @csrf
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="name" value="{{ old('name') }}" required>
-                @error('name')
-                    <span>{{ $message }}</span>
-                @enderror
+<div class="form-body form-left">
+    <div class="iofrm-layout">
+        <!-- Bagian Ilustrasi -->
+        <div class="img-holder text-start">
+            <div class="bg"></div>
+            <div class="info-holder">
+                <img src="{{ asset('img/graphic15.svg') }}" alt="Illustration">
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-                @error('email')
-                    <span>{{ $message }}</span>
-                @enderror
+        <!-- Bagian Form Pendaftaran -->
+        <div class="form-holder">
+            <div class="form-content justify-content-end">
+                <div class="form-items">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <img src="{{ asset('img/Logo Buatinkamu.png') }}" alt="Logo Buatinkamu" width="60" height="60">
+                    </div>
+                    <h3 class="font-md">Daftar Sekarang</h3>
+                    <p>Akses semua fitur unggulan untuk mendukung karya Anda.</p>
+                    
+                    <!-- Form Pendaftaran -->
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <!-- Username -->
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nama Lengkap" required>
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Alamat Email" required>
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="Kata Sandi" required>
+                            @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <label for="password-confirm">Confirm Password</label>
+                            <input type="password" id="password-confirm" class="form-control" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" required>
+                        </div>
+
+                        <!-- Tombol Daftar dan Masuk -->
+                        <div class="form-button d-flex">
+                            <button type="submit" class="btn btn-primary">Buat Akun</button>
+                            <a href="{{ route('login') }}" class="btn btn-outline-primary">Masuk</a>
+                        </div>
+                    </form>
+                    
+                    <!-- Login dengan Google -->
+                    <div class="other-links">
+                        <span>Atau</span>
+                        <a href="#"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-                @error('password')
-                    <span>{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="password-confirm">Confirm Password</label>
-                <input type="password" id="password-confirm" name="password_confirmation" required>
-            </div>
-
-            <button type="submit" class="auth-button">Register</button>
-        </form>
+        </div>
     </div>
-</section>
+</div>
 @endsection

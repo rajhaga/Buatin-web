@@ -1,12 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br><br><br><br><br><br>
 <div class="container my-5">
     <div class="custom-card shadow-lg">
         <div class="card-body">
@@ -18,9 +13,10 @@
                 <div class="form-group">
                     <label for="package_id">Nama Paket</label>
                     <select class="form-control custom-select" id="package_id" name="package_id" required onchange="updatePrice()">
-                        <option value="" disabled selected>Pilih Paket</option>
+                        <option value="" disabled {{ $packageName == '' ? 'selected' : '' }}>Pilih Paket</option>
                         @foreach($packages as $package)
-                            <option value="{{ $package->id }}" data-price="{{ $package->price }}">
+                            <option value="{{ $package->id }}" data-price="{{ $package->price }}" 
+                                    {{ $package->name == $packageName ? 'selected' : '' }}>
                                 {{ $package->name }}
                             </option>
                         @endforeach
@@ -73,9 +69,12 @@
         
         document.getElementById('price').value = parseFloat(price).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
     }
+
+    // Set initial price if package is pre-selected
+    window.onload = function() {
+        updatePrice();
+    };
 </script>
 
-</br>
-</br>
-</br>
+<br><br><br>
 @endsection

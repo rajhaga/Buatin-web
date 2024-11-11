@@ -19,6 +19,10 @@
             <label for="description">Description</label>
             <textarea name="description" class="form-control"></textarea>
         </div>
+        <div class="form-group">
+            <label for="category">category</label>
+            <textarea name="category" class="form-control"></textarea>
+        </div>
 
         <button type="submit" class="btn btn-primary mt-2">Create</button>
     </form>

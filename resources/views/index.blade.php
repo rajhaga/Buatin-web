@@ -12,7 +12,7 @@
 									  Menarik.
 							  </h1>
 							  <div class="play">
-								  <div class="play-button"><a data-fancybox="" href="https://www.youtube.com/watch?v=1La4QzGeaaQ">
+								  <div class="play-button"><a data-fancybox="" href="https://drive.google.com/file/d/12YC-7ZruS-o0TUpqtBoqlQeKudCkMpkj/view">
 								  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 										   viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
 									  <g>
@@ -63,50 +63,8 @@
 				  </div>
 					</div>
 			</div>
-	  <div class="branding-products item" style="background-image: url(https://via.placeholder.com/1920x840)">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="home-one-featured-area">
-							<h1>Our passion is bringing brands to life
-							  </h1>
-							  <div class="play">
-								  <p class="p-0">Praesent sollicitudin felis a ornare volutpat
-										  semper trist Donec nec neque lectus.</p>
-							  </div>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="extras view-btn">
-				 <a href="javascript:void(0)" class="menu-btn">
-							<h5>View Showcase<i class="fa-solid fa-plus"></i></h5></a>
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
-	  <div class="branding-products item" style="background-image: url(https://via.placeholder.com/1920x840)">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="home-one-featured-area">
-							<h1>awarded international  digital stydio
-							  </h1>
-							  <div class="play">
-								  <p class="p-0">Praesent sollicitudin felis a ornare volutpat
-										  semper trist Donec nec neque lectus.</p>
-							  </div>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="extras view-btn">
-				 <a href="javascript:void(0)" class="menu-btn">
-							<h5>View Showcase<i class="fa-solid fa-plus"></i></h5></a>
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	  
+	  
   </section>
 </br>
 <section class="gap section-f9">
@@ -123,7 +81,7 @@
 						<img src="{{ asset('img/photography.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Fotografi</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Kami menghadirkan hasil fotografi profesional untuk berbagai kebutuhan, mulai dari promosi produk hingga dokumentasi acara, dengan sentuhan visual yang memukau.</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
@@ -132,7 +90,7 @@
 						<img src="{{ asset('img/videography.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Videografi</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Dari produksi video komersial hingga dokumenter, kami menciptakan konten video berkualitas tinggi untuk meningkatkan visibilitas brand Anda.</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
@@ -141,7 +99,7 @@
 						<img src="{{ asset('img/pentool.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Editing</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Dengan proses editing yang teliti dan kreatif, kami memastikan hasil akhir video dan foto Anda tampil maksimal dan menarik perhatian.</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
@@ -150,7 +108,7 @@
 						<img src="{{ asset('img/microphone.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">VO</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Jasa Voice Over profesional untuk berbagai proyek, memastikan suara yang tepat untuk menghidupkan pesan Anda dengan cara yang paling efektif.</p>
 				</div>
 			</div>
 		</div>
@@ -161,7 +119,7 @@
 						<img src="{{ asset('img/illustration.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Desain</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Kami menawarkan jasa desain grafis yang kreatif dan fungsional untuk memperkuat brand visual Anda di berbagai media.</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
@@ -170,7 +128,7 @@
 						<img src="{{ asset('img/talent-search.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Talent</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Kami memiliki tim talent profesional yang siap membantu meningkatkan kualitas produksi Anda, dari model hingga presenter.</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
@@ -179,7 +137,7 @@
 						<img src="{{ asset('img/social-media.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Media Sosial Specialist</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Strategi sosial media yang dirancang untuk meningkatkan engagement dan membantu brand Anda terhubung dengan audiens yang lebih luas.</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
@@ -188,12 +146,13 @@
 						<img src="{{ asset('img/user.png') }}" width="105rem" height="auto" alt="">
 					</div>
 					<h4><a href="services.html">Media Partner</a></h4>
-					<p>Lorem ipsum indolor st amet, cm etctetur adips locing elit, sedi din m st ilmes.</p>
+					<p>Bermitra dengan berbagai media untuk memberikan eksposur yang lebih luas dan mendukung setiap kampanye pemasaran Anda.</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 <section class="unique-section gap no-top section-f9">
 	<div class="container">
 		<div class="row align-items-center">
@@ -297,21 +256,22 @@
 			</div>
 		</div>
 </div> 
-<section class=" section-f9 portfolio gap" style="background-image: url({{ asset('/img/10.png') }})">
+<section class="section-f9 portfolio gap" style="background-image: url({{ asset('/img/10.png') }})">
     <div class="container">
         <div class="heading">
             <p>Portfolio</p>
             <h2>Our Latest Works</h2>
         </div>
         <div class="zoom-slider owl-carousel">
-            @foreach ($portfolios as $portfolio)
+            @foreach ($portfolios->take(4) as $portfolio)
                 <div class="item zoom-slider-img">
                     <figure>
-                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
+                        <!-- Apply the same size and styling to each image -->
+                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" class="slider-image">
                     </figure>
                     <div class="zoom-slider-data">
                         <h4>{{ $portfolio->title }}</h4>
-                        <a href="#"><h2>{{ $portfolio->title }}<br>{{ $portfolio->subtitle }}</h2></a>
+                        <a href="#"><h2>{{ $portfolio->title }}</h2></a>
                         <h3>{{ $portfolio->category }}</h3>
                     </div>
                 </div>
@@ -431,5 +391,20 @@
 		</div>
 </section> 
 
+<style>
+    /* Styling for images to maintain consistent size */
+    .slider-image {
+        width: 100%; /* Takes full width of the slider item */
+        height: 580px; /* Set a fixed height to maintain consistency */
+        object-fit: cover; /* Ensures images fit without distortion */
+        border-radius: 8px; /* Optional: adds rounded corners */
+    }
+
+    /* Optional: Set a max-width for carousel items for a uniform look */
+    .zoom-slider .item {
+        max-width: 600px; /* Adjust as needed */
+        margin: auto;
+    }
+</style>
 
 @endsection

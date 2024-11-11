@@ -10,10 +10,13 @@
         @foreach ($portfolios as $portfolio)
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm border-light">
-                <img src="{{ asset('storage/' . $portfolio->image) }}" class="card-img-top" alt="{{ $portfolio->title }}">
+                <!-- Image with fixed container size and object-fit for consistent display -->
+                <img src="{{ asset('storage/' . $portfolio->image) }}" 
+                     class="card-img-top portfolio-image" 
+                     alt="{{ $portfolio->title }}">
                 <div class="card-body">
                     <h4 class="card-title">{{ $portfolio->title }}</h4>
-                    <p class="card-text">{{ $portfolio->subtitle }}</p>
+                    <p class="card-text">{{ $portfolio->klien }}</p>
                     <p class="text-muted">Category: {{ $portfolio->category }}</p>
                     @if ($portfolio->date)
                         <p class="text-muted">Date: {{ \Carbon\Carbon::parse($portfolio->date)->format('d M Y') }}</p>
@@ -21,7 +24,7 @@
 
                     <div class="d-flex justify-content-between mt-3">
                         @if ($portfolio->video_url)
-                            <a href="{{ $portfolio->video_url }}" class="btn btn-info me-2" target="_blank">Watch Video</a>
+                            <a href="{{ $portfolio->video_url }}" class="btn btn-info me-2" target="_blank">link</a>
                         @endif
                         @if ($portfolio->pdf)
                             <a href="{{ asset('storage/' . $portfolio->pdf) }}" class="btn btn-secondary me-2" target="_blank">Download PDF</a>
@@ -40,3 +43,11 @@
     </div>
 </div>
 @endsection
+
+<style>
+    .portfolio-image {
+        width: 100%;
+        height: 200px; /* Set a fixed height */
+        object-fit: cover; /* Crop the image to fit the container without stretching */
+    }
+</style>

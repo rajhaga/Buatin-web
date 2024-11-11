@@ -9,6 +9,11 @@ use Exception;
 
 class PortfolioController extends Controller
 {
+    public function show(Portfolio $portfolio)
+    {
+        return view('portfolio.show', compact('portfolio'));
+    }
+
     public function index()
     {
         $portfolios = Portfolio::all();
@@ -18,13 +23,16 @@ class PortfolioController extends Controller
     public function frontEndIndex()
     {
         $portfolios = Portfolio::all();
-        return view('index', compact('portfolios')); // 'index' is your front-end view (homepage)
+        return view('index', compact('portfolios'));
     }
 
     public function frontEndIport()
     {
-        $portfolios = Portfolio::all();
-        return view('port', compact('portfolios')); // 'index' is your front-end view (homepage)
+        $portfolios = Portfolio::orderBy('date', 'desc')->get();
+        $leftColumn = $portfolios->take(ceil($portfolios->count() / 2));
+        $rightColumn = $portfolios->skip(ceil($portfolios->count() / 2));
+
+        return view('port', compact('leftColumn', 'rightColumn'));
     }
 
     public function create()
@@ -34,37 +42,32 @@ class PortfolioController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
+            'klien' => 'required|string|max:255', // Changed to 'klien'
             'category' => 'required|string|max:255',
-            'date' => 'required|date', // Validasi untuk tanggal
-            'image' => 'nullable|image|max:2048', // Gambar bersifat opsional
-            'video' => 'nullable|file|mimes:mp4,avi|max:20480', // Validasi untuk video
-            'pdf' => 'nullable|file|mimes:pdf|max:2048', // PDF bersifat opsional
-            'video_url' => 'nullable|url', // Validasi untuk URL video
+            'date' => 'required|date',
+            'description' => 'nullable|string', // Validation for description
+            'image' => 'nullable|image|max:2048',
+            'video' => 'nullable|file|mimes:mp4,avi|max:20480',
+            'pdf' => 'nullable|file|mimes:pdf|max:2048',
+            'video_url' => 'nullable|url',
         ]);
 
-        // Menangani upload gambar
         $imagePath = $request->hasFile('image') ? $request->file('image')->store('portfolio/images', 'public') : null;
-
-        // Menangani upload video
         $videoPath = $request->hasFile('video') ? $request->file('video')->store('portfolio/videos', 'public') : null;
-
-        // Menangani upload PDF
         $pdfPath = $request->hasFile('pdf') ? $request->file('pdf')->store('portfolio/pdfs', 'public') : null;
 
-        // Membuat entri portfolio baru
         Portfolio::create([
             'title' => $request->title,
-            'subtitle' => $request->subtitle,
+            'klien' => $request->klien, // Changed to 'klien'
             'category' => $request->category,
-            'date' => $request->date, // Menyimpan tanggal
-            'image' => $imagePath, // Menyimpan path gambar jika ada
-            'video' => $videoPath, // Menyimpan path video jika ada
-            'pdf' => $pdfPath, // Menyimpan path PDF jika ada
-            'video_url' => $request->video_url, // Menyimpan URL video
+            'date' => $request->date,
+            'description' => $request->description, // Save description
+            'image' => $imagePath,
+            'video' => $videoPath,
+            'pdf' => $pdfPath,
+            'video_url' => $request->video_url,
         ]);
 
         return redirect()->route('portfolio.index')->with('success', 'Portfolio item added successfully.');
@@ -77,27 +80,24 @@ class PortfolioController extends Controller
 
     public function update(Request $request, Portfolio $portfolio)
     {
-        // Validate incoming request data
         $request->validate([
             'title' => 'required',
-            'subtitle' => 'required',
+            'klien' => 'required', // Changed to 'klien'
             'category' => 'required',
             'image' => 'image|nullable',
             'video_url' => 'nullable|url',
             'pdf' => 'nullable|mimes:pdf|max:2048',
             'date' => 'nullable|date',
+            'description' => 'nullable|string', // Validation for description
         ]);
 
-        // Update the title, subtitle, category, date, and video URL
-        $portfolio->update($request->only(['title', 'subtitle', 'category', 'date', 'video_url']));
+        $portfolio->update($request->only(['title', 'klien', 'category', 'date', 'video_url', 'description']));
 
-        // Handle image upload
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('portfolio/images', 'public');
             $portfolio->update(['image' => $imagePath]);
         }
 
-        // Handle PDF file upload
         if ($request->hasFile('pdf')) {
             $pdfPath = $request->file('pdf')->store('portfolio/pdfs', 'public');
             $portfolio->update(['pdf' => $pdfPath]);

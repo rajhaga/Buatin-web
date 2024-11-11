@@ -83,8 +83,6 @@ html {
 body {
     overflow-x: hidden;
     font-family: 'Poppins';
-    /* background-color: #f9f9f9; Warna solid */
-
 }
 body.menu-layer.page-loaded {
     overflow-x: hidden !important;
@@ -263,29 +261,7 @@ header {
     padding: 30px 0;
     width: 100%;
     z-index: 111;
-    position: fixed;
-    transition: background-color 0.3s ease;
-    background-color: rgba(73, 7, 164, 0.5); /* Hitam dengan transparansi 80% */
-    color: white;
 }
-
-
-  
-  /* Konten di bawah header */
-  .section {
-    height: 100vh;
-    padding: 50px;
-  }
-  
-  /* Simulasi bagian berbeda */
-  .section-dark {
-    background-color: black;
-    color: white;
-  }
-  
-  .section-f9 {
-    background-color: #f9f9f9;
-  }
 /* 2. branding-products  */
 .branding-products {
     padding-top: 260px;
@@ -513,7 +489,6 @@ header {
 }
 .how-we-work {
     padding-left: 42px;
-    padding-top: 20px;
 }
 .photo-preview .two img,.photo-preview .one img,.photo-preview .for img,.photo-preview .three img {
         width: 100px;
@@ -3861,8 +3836,8 @@ form.content-form input[type="email"] {
     color: #555;
     outline: none;
 }
-form.content-form input[type="text"],
-form.content-form input[type="email"] ::placeholder{
+
+form.content-form input[type="text"]::placeholder{
     color: #555;
 }
 form.content-form textarea {
@@ -4713,7 +4688,7 @@ body.menu-layer:before {
   width: 370vw;
   height: auto;
   padding-top: 370vw;
-  background-color: #ffffff;
+  background-color: #000;
   position: fixed;
   top: 0;
   right: 0;
@@ -4962,7 +4937,36 @@ form.message button.sec-btn::before{
 /* 56. lightbox */
 .lightbox-toggle {
   color: black;
+  margin-left: 20px
 }
+
+/* Style untuk button Login */
+.lightbox-toggle1 {
+    color: white; /* Warna teks putih */
+    background-color: transparent; /* Background transparan */
+    padding: 10px 20px; /* Sesuaikan padding agar ukurannya sama dengan button booking */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 30px; /* Radius sudut, opsional */
+    font-size: 16px; /* Sesuaikan ukuran font */
+}
+
+/* Agar ukuran button Login dan Booking seragam */
+.hamburger-icon .sec-btn {
+    width: 140px; /* Atur lebar yang sama */
+    height: 50px; /* Atur tinggi yang sama */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect (opsional) */
+.lightbox-toggle1:hover {
+    background-color: white; /* Background berubah menjadi putih saat hover */
+    color: #000; /* Warna teks berubah */
+}
+
 .box {
     z-index: 2111111111111;
     position: fixed;
@@ -5024,7 +5028,7 @@ form.message button.sec-btn::before{
     left: 0%;
     width: 50%;
     height: 100%;
-    padding: 60px 1200px;
+    padding: 60px 100px;
     background-color: white;
     z-index: 1002;
     overflow: hidden;
@@ -5550,6 +5554,7 @@ img.light-icon {
 .end-bar a.logo-white{
     display: none !important;
 }
+
 
 .auth-card {
     background-color: white;
@@ -6143,3 +6148,113 @@ h4 {
     background-color: #574fbc;
 }
 
+/* Main Section Styling */
+#pricingPlansSection {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+.purple-text {
+    color: #000000; /* Purple color for text */
+}
+.heading {
+    margin-bottom: 60px;
+}
+.heading h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.heading p {
+    font-size: 1.1rem;
+}
+
+/* Category Title */
+.category-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    text-align: center;
+    position: relative;
+}
+.category-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #6c63ff;
+    margin: 10px auto 0;
+}
+
+/* Pricing Card Styling */
+.pricing-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 350px; /* Set a fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+.icon {
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: #ffffff; /* Purple icon background */
+    padding: 15px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* Package Name and Price */
+.package-name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+.price {
+    font-size: 2rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Description Text */
+.description {
+    color: #777;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+/* Button Styling */
+.sec-btn {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.sec-btn:hover {
+    background-color: #9c96e0;
+    transform: scale(1.05);
+}
