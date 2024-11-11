@@ -19,18 +19,17 @@ return new class extends Migration
         //     $table->timestamps();
         // });
 
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->timestamps();
-            
-        });
+        // Schema::create('users', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name');
+        //     $table->string('email')->unique();
+        //     $table->string('password');
+        //     $table->timestamps();
+        // });
 
-        Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['user', 'admin'])->default('user'); // Hanya user atau admin
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->enum('role', ['user', 'admin'])->default('user'); // Hanya user atau admin
+        // });
     }
 
     /**
