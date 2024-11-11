@@ -1,0 +1,19 @@
+/vendor
+/node_modules
+.env
+/storage/*.key
+
+# Ignore compiled files and cache
+/bootstrap/cache/*
+/public/storage
+/storage/app/public
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Ignore IDE and system-specific files
+*.vscode
+*.DS_Store
+*.idea
+*.env.local
+*.phpunit.result.cache
