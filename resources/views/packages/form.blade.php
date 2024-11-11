@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<br><br><br><br><br><br>
+<section class="hero-section " style="background-image: url('{{ asset('img/12.png') }}')">
+    <div class="container">
+        <h2>Form pemesanan</h2>
+        <p>Dari Ide hingga Eksekusi, Kami Ahlinya!</p>
+        <ul>
+            <li><i class="fa-solid fa-house"></i><a href="{{ route('home') }}">Beranda</a></li>
+            <li><a href="https://drive.google.com/file/d/12YC-7ZruS-o0TUpqtBoqlQeKudCkMpkj/view">Link Price list</a></li>  
+        </ul>
+    </div>
+</section>
 <div class="container my-5">
     <div class="custom-card shadow-lg">
         <div class="card-body">
