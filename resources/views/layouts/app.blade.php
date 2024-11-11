@@ -47,6 +47,7 @@
                 <nav class="navbar">
                     <ul class="navbar-links">
                         <li class="navbar-dropdown"><a href="{{ route('home') }}">Beranda</a></li>
+                        <li class="navbar-dropdown"><a href="{{ route('pricing') }}">Price List</a></li>
                         <li class="navbar-dropdown"><a href="{{ route('about') }}">Tentang</a></li>
                         <li class="navbar-dropdown"><a href="{{ route('port') }}">Portfolio</a></li>
                         <li class="navbar-dropdown"><a href="{{ route('contact.show') }}">Kontak</a></li>
@@ -137,6 +138,7 @@
                     <h4>Links</h4>
                     <ul class="links">
                         <li><a href="{{ route('home') }}">Beranda</a></li>
+                        <li><a href="{{ route('pricing') }}">Pricelist</a></li>
                         <li><a href="{{ route('about') }}">Tentang</a></li>
                         <li><a href="{{ route('port') }}">Portfolio</a></li>
                         <li><a href="{{ route('contact.show') }}">Kontak</a></li>

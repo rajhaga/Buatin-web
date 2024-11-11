@@ -18,13 +18,21 @@ class PackageController extends Controller
     {
         return view('admin.packages.create');
     }
+    public function about()
+    {
+        // Mengambil semua data packages dari database
+        $packages = Package::all();
+        
+        // Mengirim data packages ke view
+        return view('about');
+    }
     public function pricing()
     {
         // Mengambil semua data packages dari database
         $packages = Package::all();
         
         // Mengirim data packages ke view
-        return view('about', compact('packages'));
+        return view('packages.pricing', compact('packages'));
     }
 
     public function portpricing()

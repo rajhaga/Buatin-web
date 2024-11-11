@@ -26,8 +26,8 @@ use Illuminate\Support\Facades\Auth;
 
 // Public Routes
 Route::get('/', [PortfolioController::class, 'frontEndIndex'])->name('home');
-// Route::get('/about', fn() => view('about'))->name('about');
-Route::get('/about', [PackageController::class, 'pricing'])->name('about');
+Route::get('/about', [PackageController::class, 'about'])->name('about');
+Route::get('/pricinglist', [PackageController::class, 'pricing'])->name('pricing');
 Route::get('/p', [PackageController::class, 'portpricing'])->name('port');
 Route::get('/p', [PortfolioController::class, 'frontEndIport'])->name('port');
 

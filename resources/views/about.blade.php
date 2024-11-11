@@ -14,7 +14,6 @@
 			</ul>
 		</div>
 	</section>
-	@include('packages.pricing')
 
 	<section class="about-unique gap no-bottom">
 		<div class="container">
