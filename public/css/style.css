@@ -6258,7 +6258,7 @@ h4 {
     background-color: #9c96e0;
     transform: scale(1.05);
 }
-
+style>
 /* General Styling for Body and Background Consistency */
 body, html {
     margin: 0;
@@ -6270,7 +6270,7 @@ body, html {
 .footer-style-one {
     position: relative;
     padding: 40px 20px;
-    background-color: #3e005d; /* Ensure consistency with the page background */
+    background: linear-gradient(145deg, #3e005d, #2a0040); /* Gradient background */
     color: #fff;
     width: 100%; /* Ensures full width */
     margin: 0;
@@ -6298,6 +6298,11 @@ body, html {
     flex: 1;
     margin-bottom: 20px;
     min-width: 250px; /* Ensures columns have a minimum width */
+}
+
+/* Align items at the start of the row to make sure they are aligned with the top */
+.footer-style-one .row {
+    align-items: flex-start;
 }
 
 .footer-style-one .information .row,
@@ -6348,6 +6353,7 @@ body, html {
 .footer-style-one .links li {
     list-style: none;
     margin-bottom: 10px;
+    padding-right: 15px; /* Adds space between each link */
 }
 
 .footer-style-one .links li a {
@@ -6371,9 +6377,20 @@ body, html {
 
 .footer-style-one p.footer {
     margin-top: 20px;
+    margin-bottom: 20px; /* Adds spacing below footer text */
     color: #ddd;
     font-size: 14px;
     text-align: center;
+}
+
+/* Hover Effects for Social Media Icons */
+.footer-style-one .newsletter ul li a i {
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-style-one .newsletter ul li a:hover i {
+    color: #fff;
+    transform: scale(1.1);
 }
 
 /* Media Query for Responsiveness */

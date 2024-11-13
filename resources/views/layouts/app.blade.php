@@ -97,12 +97,11 @@
   <main>
     @yield('content')
   </main>
-
-  <!-- footer -->
-  <footer class="footer-style-one gap" style="background-image: url({{ asset('img/11.png') }})">
+<!-- footer -->
+<footer class="footer-style-one gap" style="background-image: url({{ asset('img/11.png') }})">
     <div class="container">
         <div class="information">
-            <div class="row">
+            <div class="row" style="align-items: flex-start;">
                 <div class="col-lg-6 col-md-4">
                     <div class="logo">
                         <a href="{{ route('home') }}">
@@ -120,8 +119,8 @@
             </div>
         </div>
         
-        <div class="row gap">
-            <div class="offset-xl-1 col-lg-3 col-md-4 col-sm-6">
+        <div class="row gap" style="align-items: flex-start;">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="newsletter">
                     <h4>Links</h4>
                     <ul class="links">
@@ -156,7 +155,6 @@
         <p class="footer">© 2024 BuatinKamu.Id <i class="fas fa-heart"></i> By <a href="https://themeforest.net/user/winsfolio" target="_blank">WELLLL</a>, All rights reserved</p>
     </div>
 </footer>
-
 
 
   <!-- LIGHTBOX CODE BEGIN -->

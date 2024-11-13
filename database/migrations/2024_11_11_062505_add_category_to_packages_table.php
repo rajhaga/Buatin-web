@@ -9,28 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    // public function up(): void
-    // {
-    //     Schema::table('packages', function (Blueprint $table) {
-    //         $table->id();
-    //         $table->string('name');
-    //         $table->string('category'); // Add category column
-    //         $table->text('description');
-    //         $table->decimal('price', 10, 2);
-    //         $table->timestamps();
-    //     });
+    public function up()
+    {
+        Schema::create('packages', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('category');
+            $table->text('description');
+            $table->decimal('price', 10, 2);
+            $table->timestamps(0);
+        });
+    }
 
-    // }
-
-    // /**
-    //  * Reverse the migrations.
-    //  */
-    // public function down(): void
-    // {
-    //     Schema::table('packages', function (Blueprint $table) {
-    //         Schema::table('packages', function (Blueprint $table) {
-    //             $table->dropColumn('category'); // Remove the category column
-    //         });
-    //     });
-    // }
+    public function down()
+    {
+        Schema::dropIfExists('packages');
+    }
 };
+

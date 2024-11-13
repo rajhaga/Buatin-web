@@ -13,7 +13,7 @@
             </ul>
         </div>
     @endif
-
+        
     <form action="{{ route('portfolio.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -22,14 +22,19 @@
             <input type="text" name="title" class="form-control" required>
         </div>
 
-        <div class="form-group">
-            <label for="subtitle">Subtitle</label>
-            <input type="text" name="subtitle" class="form-control" required>
+        <div class="form-group mb-3">
+            <label for="klien">Klien</label>
+            <input type="text" name="klien" class="form-control" required>
         </div>
 
         <div class="form-group">
             <label for="category">Category</label>
             <input type="text" name="category" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" rows="4"></textarea>
         </div>
 
         <div class="form-group">

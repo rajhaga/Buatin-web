@@ -37,10 +37,10 @@
                     </li>
                 </ul>
                 <br>
-                @if($portfolio->pdf)
+                @if($portfolio->video_url)
                 <ul class="social-media">
                     <li>
-                        <a href="{{ asset('storage/' . $portfolio->pdf) }}" target="_blank">
+                        <a href="{{$portfolio->video_url}}" target="_blank">
                             <i class="fa-brands fa-linkedin-in"></i>Link Produk
                         </a>
                     </li>
