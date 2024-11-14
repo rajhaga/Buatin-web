@@ -53,13 +53,7 @@
                 <!-- Deskripsi Konten -->
                 <div class="form-group">
                     <label for="description">Deskripsi Konten</label>
-                    <textarea class="form-control" id="description" name="description" placeholder="Masukkan Deskripsi Konten" rows="4" required></textarea>
-                </div>
-
-                <!-- Referensi Konten (file upload) -->
-                <div class="form-group">
-                    <label for="reference">Referensi</label>
-                    <input type="file" class="form-control-file" id="reference" name="reference" accept="image/*,video/*" required>
+                    <textarea class="form-control" id="description" name="description" placeholder="Masukkan Deskripsi Konten dan link referensi" rows="4" required></textarea>
                 </div>
 
                 <!-- Button Submit -->
