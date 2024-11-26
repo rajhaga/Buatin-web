@@ -85,13 +85,32 @@
             </a>
         </div>
         <ul>
+            @if(Auth::check())
+                <!-- Jika sudah login -->
+                <li>
+                    <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <!-- Form logout -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+                <li><a href="{{ route('packages.orderForm') }}">Booking</a></li>
+            @else
+                <!-- Jika belum login -->
+                <li><a href="{{ route('login') }}">Login</a></li>
+            @endif
             <li><a href="{{ route('home') }}">Beranda</a></li>
+            <li><a href="{{ route('pricing') }}">Price List</a></li>
             <li><a href="{{ route('about') }}">Tentang</a></li>
             <li><a href="{{ route('port') }}">Portfolio</a></li>
-            <li><a href="{{ route('booked.list') }}">Layanan</a></li>
+            <li><a href="{{ route('contact.show') }}">Kontak</a></li>
         </ul>
         <span class="res-cross"><i class="cls-leftright"></i><i class="cls-rightleft"></i></span>
     </div>
+
 </header>
 
   <main>
